@@ -1,0 +1,3 @@
+#!/bin/bash
+clear
+echo -e "\033[1;92mWelcome Back! Your terminal is successfully customized.\033[0m"

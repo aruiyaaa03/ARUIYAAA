@@ -45,7 +45,6 @@ else
 fi
 devicename="${VENDOR} ${MODEL}"
 THRESHOLD=100
-random_number=$(( RANDOM % 2 ))
 
 exit_script() {
     clear
@@ -54,7 +53,6 @@ exit_script() {
     echo -e "              ⊂(___)づ  ⋅˚₊‧ ଳ ‧₊˚ ⋅"              
     echo -e "\n ${g}[${n}${KER}${g}] ${c}Exiting ${g}ARUIYAAA Banner \033[1;36m\n"
     cd "$HOME" || exit
-    rm -rf "$HOME/ARUIYAAA"
     kill -9 $PPID 2>/dev/null
     exit 0
 }
@@ -104,10 +102,10 @@ start() {
     TOTAL_CHARS=0
     texts=(
         "「 ARUIYAAA STARTED 」"
-        "「 HELLO DEAR USER I'M  ARIYAN MUNNA 」"
+        "「 HELLO DEAR USER I'M DX-SIMU 」"
         "「 ARUIYAAA WILL PROTECT YOU 」"
         "「 GOODBYE 」"
-        "「 ENJOY OUR ARU.CZ 」"
+        "「 ENJOY OUR ARUIYAAA 」"
         "「............... 」"
     )
     for t in "${texts[@]}"; do
@@ -262,27 +260,26 @@ linux_spin() {
 setup_termux_paths() {
     local ds="$HOME/.termux"
     mkdir -p "$ds"
-    [ -f "$HOME/ARUIYAAA/files/font.ttf" ] && cp "$HOME/ARUIYAAA/files/font.ttf" "$ds/"
-    [ -f "$HOME/ARUIYAAA/files/colors.properties" ] && cp "$HOME/ARUIYAAA/files/colors.properties" "$ds/"
+    [ -f "./files/font.ttf" ] && cp "./files/font.ttf" "$ds/"
+    [ -f "./files/colors.properties" ] && cp "./files/colors.properties" "$ds/"
     
-    # Safe move template checks
-    if [ -d "$HOME/ARUIYAAA/files" ]; then
-        find "$HOME/ARUIYAAA/files/" -maxdepth 1 -type f -exec chmod +x {} \;
-        mv "$HOME/ARUIYAAA/files/simu" "$PREFIX/bin/" 2>/dev/null
-        mv "$HOME/ARUIYAAA/files/code" "$PREFIX/bin/" 2>/dev/null
-        mv "$HOME/ARUIYAAA/files/"* "$HOME/.toolx/" 2>/dev/null
+    if [ -d "./files" ]; then
+        find "./files/" -maxdepth 1 -type f -exec chmod +x {} \;
+        mv "./files/simu" "$PREFIX/bin/" 2>/dev/null
+        mv "./files/code" "$PREFIX/bin/" 2>/dev/null
+        mv "./files/"* "$HOME/.toolx/" 2>/dev/null
     fi
     termux-reload-settings
 }
 
 setup_linux_paths() {
     mkdir -p ~/.local/share/fonts
-    [ -f "$HOME/ARUIYAAA/files/font.ttf" ] && cp "$HOME/ARUIYAAA/files/font.ttf" ~/.local/share/fonts/ && fc-cache -fv > /dev/null
-    if [ -d "$HOME/ARUIYAAA/files" ]; then
-        find "$HOME/ARUIYAAA/files/" -maxdepth 1 -type f -exec chmod +x {} \;
-        sudo mv "$HOME/ARUIYAAA/files/simu" /usr/local/bin/ 2>/dev/null
-        sudo mv "$HOME/ARUIYAAA/files/code" /usr/local/bin/ 2>/dev/null
-        mv "$HOME/ARUIYAAA/files/"* "$HOME/.toolx/" 2>/dev/null
+    [ -f "./files/font.ttf" ] && cp "./files/font.ttf" ~/.local/share/fonts/ && fc-cache -fv > /dev/null
+    if [ -d "./files" ]; then
+        find "./files/" -maxdepth 1 -type f -exec chmod +x {} \;
+        sudo mv "./files/simu" /usr/local/bin/ 2>/dev/null
+        sudo mv "./files/code" /usr/local/bin/ 2>/dev/null
+        mv "./files/"* "$HOME/.toolx/" 2>/dev/null
     fi
 }
 
@@ -302,9 +299,9 @@ dxnetcheck() {
         if curl --silent --head --fail https://github.com > /dev/null; then
             break
         else
-            echo -e "                ${g}╔══════════════════╗"
-            echo -e "                ${g}║${C} ${r}No Internet ${g}║"
-            echo -e "                ${g}╚══════════════════╝"
+            echo -e "                 ${g}╔══════════════════╗"
+            echo -e "                 ${g}║${C} ${r}No Internet ${g}║"
+            echo -e "                 ${g}╚══════════════════╝"
             sleep 2.5
         fi
     done
@@ -353,8 +350,8 @@ donotchange() {
     [ -d "/data/data/com.termux/files/usr/" ] && D1="$HOME/.termux"
     mkdir -p "$D1"
     
-    INPUT_FILE="$HOME/ARUIYAAA/files/.zshrc"
-    THEME_INPUT="$HOME/ARUIYAAA/files/.aruiyaaa.zsh-theme"
+    INPUT_FILE="./files/.zshrc"
+    THEME_INPUT="./files/.aruiyaaa.zsh-theme"
     OUTPUT_ZSHRC="$HOME/.zshrc"
     OUTPUT_THEME="$HOME/.oh-my-zsh/themes/aruiyaaa.zsh-theme"
     TEMP_FILE="$HOME/temp.zshrc"
@@ -380,11 +377,11 @@ donotchange() {
 
 banner() {
     clear
-    echo -e "${y}     _____                                                                                 _____ "
+    echo -e "${y}     _____                                                                                _____ "
     echo -e "${y}    ( ___ )--------------------------------------------------------------------------------( ___ )"
     echo -e "${y}     |   |                                                                                  |   | "
-    echo -e "${y}     |   |    ____    _    ____  _____    __    _  _     _  ____        ___   _ _   _ _____    |   | "
-    echo -e "${y}     |   |   | __ )  / \  / ___|| ____|  / /_  | || |   | |/ /\ \      / / | | | | | |_   _|   |   | "
+    echo -e "${y}     |   |    ____    _    ____  _____    __    _  _     _  ____        ___   _ _   _ _____     |   | "
+    echo -e "${y}     |   |   | __ )  / \  / ___|| ____|  / /_  | || |   | |/ /\ \      / / | | | | | |_   _|    |   | "
     echo -e "${c}     |   |   |  _ \ / _ \ \___ \|  _|    | '_ \| || |_  | ' /  \ \ /\ / /| |_| | |_| | | |     |   | "
     echo -e "${c}     |   |   | |_) / ___ \ ___) | |___   | (_) |__   _| | . \   \ V  V / |  _  |  _  | | |     |   | "
     echo -e "${c}     |   |   |____/_/   \_\____/|_____|  \___/    |_|   |_|\_\   \_/\_/  |_| |_|_| |_| |_|     |   | "
@@ -393,12 +390,8 @@ banner() {
     echo -e "${y}                        +-+-+-+-+-+-+-+-+"
     echo -e "${c}                        |A|R|U|I|Y|A|A|A|"
     echo -e "${y}                        +-+-+-+-+-+-+-+-+${n}\n"
-    if [ $random_number -eq 0 ]; then
-        echo -e "${b}╭════════════════════════⊷\n┃ ${g}[${n}ム${g}] ᴛɢ: ${y}t.me/Aruiyaaa03\n╰════════════════════════⊷"
-    else
-        echo -e "${b}╭══════════════════════════⊷\n┃ ${g}[${n}ム${g}] ᴛɢ: ${y}t.me/khanwhitehathackerteam\n╰══════════════════════════⊷"
-    fi
-    echo -e "\n${b}╭══ ${g}〄 ${y}ᴀʀᴜɪʏᴀᴀᴀ ${g}〄\n┃❁ ${g}ᴄʀᴇᴀᴛᴏʀ: ${y}ᴀʀᴜɪʏᴀᴀᴀ\n┃❁ ${g}Host OS: ${y}${VENDOR}\n╰┈➤ ${g}Hey ${y}Dear\n"
+    echo -e "${b}╭══════════════════════════⊷\n┃ ${g}[${n}ム${g}] ᴛɢ: ${y}t.me/aruiyaaa\n╰══════════════════════════⊷"
+    echo -e "\n${b}╭══ ${g}〄 ${y}ᴀʀᴜɪʏᴀᴀᴀ ${g}〄\n┃❁ ${g}ᴄʀᴇᴀᴛᴏʀ: ${y}ᴅx-ᴀʀᴜɪʏᴀᴀᴀ\n┃❁ ${g}Host OS: ${y}${VENDOR}\n╰┈➤ ${g}Hey ${y}Dear\n"
 }
 
 banner2() {
@@ -420,7 +413,7 @@ setupx() {
         linux_spin
     fi
 
-    if [ -d "$HOME/ARUIYAAA" ]; then
+    if [ -d "./files" ]; then
         sleep 1
         clear
         banner
@@ -441,7 +434,6 @@ setupx() {
         echo -e " ${C} ${c}Type ${g}exit ${c} then ${g}enter ${c}Now Open Your Terminal¡¡ ${g}[${n}${HOMES}${g}]${n}\n"
         sleep 3
         cd "$HOME" || exit
-        rm -rf "$HOME/ARUIYAAA"
         kill -9 $PPID 2>/dev/null
         exit 0
     else
@@ -510,7 +502,7 @@ if [ -d "/data/data/com.termux/files/usr/" ]; then
                 "Premium")
                     echo -e "\n ${g}[${n}${HOST}${g}] ${c}Wait for opening Telegram..!${n}"
                     sleep 1
-                    termux-open "https://t.me/Aruiyaaa03" 2>/dev/null || xdg-open "https://t.me/Khanwhitehathackerteam" 2>/dev/null
+                    termux-open "https://t.me/aruiyaaa" 2>/dev/null || xdg-open "https://t.me/aruiyaaa" 2>/dev/null
                     echo -e "\n ${g}[${n}${HOMES}${g}] ${c}Switching to Free Usage to continue..!${n}"
                     sleep 2
                     setupx
@@ -536,7 +528,7 @@ else
         elif [ "$choice" == "2" ]; then
             echo -e "\n ${g}[${n}${HOST}${g}] ${c}Wait for opening Telegram..!${n}"
             sleep 1
-            xdg-open "https://t.me/Aruiyaaa03" 2>/dev/null
+            xdg-open "https://t.me/aruiyaaa" 2>/dev/null
             echo -e "\n ${g}[${n}${HOMES}${g}] ${c}Switching to Free Usage to continue..!${n}"
             sleep 2
             setupx
